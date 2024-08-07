@@ -1,8 +1,8 @@
 import { notFound, parseBucketPath } from "@/utils/bucket";
-import {get_auth_status} from "@/utils/auth";
+import {get_auth_status_chid} from "@/utils/auth";
 export async function onRequestGet(context) {
   try {
-    if(!get_auth_status(context)){
+    if(!get_auth_status_chid(context)){
     var header = new Headers()
     header.set("WWW-Authenticate",'Basic realm="需要登录"')
     return new Response("没有操作权限", {
